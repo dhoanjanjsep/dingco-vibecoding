@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cursor Talk to Figma MCP</title>
+    <link>https://dhoanjanjsep.github.io/dingco-vibecoding/</link>
+    <description>AI와 Figma를 연결하는 Model Context Protocol 통합 도구에 대한 최신 업데이트와 소식</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+    <ttl>1440</ttl>
+    <atom:link href="https://dhoanjanjsep.github.io/dingco-vibecoding/rss.xml" rel="self" type="application/rss+xml"/>
+    <webMaster>dhoanjanjsep@github.com (dhoanjanjsep)</webMaster>
+    <managingEditor>dhoanjanjsep@github.com (dhoanjanjsep)</managingEditor>
+    
+    <item>
+      <title>Cursor Talk to Figma MCP 프로젝트 공개</title>
+      <link>https://dhoanjanjsep.github.io/dingco-vibecoding/</link>
+      <description><![CDATA[
+        Cursor AI와 Figma를 연결하는 혁신적인 Model Context Protocol 통합 도구가 공개되었습니다. 
+        이 도구를 통해 AI로 Figma 디자인을 읽고, 수정하고, 자동화할 수 있습니다.
+        
+        주요 기능:
+        • AI 기반 디자인 읽기 및 분석
+        • 자동 요소 생성 (텍스트, 프레임, 도형)
+        • 일괄 텍스트 변경
+        • 컴포넌트 관리 및 인스턴스 생성
+        • 어노테이션 지원
+        • 프로토타입 연결 시각화
+        
+        Windows 사용자를 위한 원클릭 설치 지원:
+        npm run install-and-setup
+      ]]></description>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">cursor-talk-to-figma-mcp-launch-2024-12-20</guid>
+      <category>AI Tools</category>
+      <category>Figma</category>
+      <category>Design Automation</category>
+    </item>
+    
+    <item>
+      <title>Windows PowerShell 설정 스크립트 추가</title>
+      <link>https://dhoanjanjsep.github.io/dingco-vibecoding/#installation</link>
+      <description><![CDATA[
+        Windows 사용자를 위한 PowerShell 설정 스크립트가 추가되었습니다.
+        
+        새로운 설치 옵션:
+        • install-and-setup.ps1 - 원스톱 자동 설치
+        • setup-windows-simple.ps1 - bun 기반 설치
+        • setup-windows-npm.ps1 - npm 기반 설치
+        • setup.ps1 - 수동 설치
+        
+        이제 Windows 환경에서도 "bun is not recognized" 오류 없이 
+        쉽게 프로젝트를 설정할 수 있습니다.
+      ]]></description>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">windows-powershell-scripts-2024-12-20</guid>
+      <category>Installation</category>
+      <category>Windows</category>
+      <category>PowerShell</category>
+    </item>
+    
+    <item>
+      <title>웹 인터페이스 및 GitHub Pages 지원</title>
+      <link>https://dhoanjanjsep.github.io/dingco-vibecoding/</link>
+      <description><![CDATA[
+        프로젝트에 웹 인터페이스가 추가되었습니다.
+        
+        새로운 기능:
+        • 반응형 랜딩 페이지
+        • 인터랙티브 설치 가이드
+        • 탭 기능이 있는 OS별 설치 방법
+        • 코드 복사 기능
+        • Google Search Console 인증 지원
+        • SEO 최적화
+        
+        GitHub Pages를 통해 배포되어 누구나 쉽게 접근할 수 있습니다.
+      ]]></description>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+      <guid isPermaLink="false">web-interface-github-pages-2024-12-20</guid>
+      <category>Web Interface</category>
+      <category>GitHub Pages</category>
+      <category>Documentation</category>
+    </item>
+    
+  </channel>
+</rss>
