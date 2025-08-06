@@ -1,41 +1,46 @@
 {
   "name": "cursor-talk-to-figma-mcp",
-  "description": "Cursor Talk to Figma MCP",
+  "description": "Cursor Talk to Figma MCP - Next.js Web Interface",
   "version": "0.3.1",
-  "module": "dist/server.js",
-  "main": "dist/server.js",
-  "bin": {
-    "cursor-talk-to-figma-mcp": "dist/server.js"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "type": "module",
+  "private": true,
   "scripts": {
-    "start": "bun run dist/server.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "socket": "bun run src/socket.ts",
     "serve": "npx serve public -p 3000",
+    "serve:docs": "npx serve docs -p 3000",
     "setup": "./scripts/setup.sh",
     "setup:windows": "powershell -ExecutionPolicy Bypass -File ./scripts/setup.ps1",
     "setup:windows-simple": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-windows-simple.ps1",
     "setup:windows-npm": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-npm.ps1",
     "install-and-setup": "powershell -ExecutionPolicy Bypass -File ./scripts/install-and-setup.ps1",
-    "build": "tsup",
+    "build:mcp": "tsup",
     "build:watch": "tsup --watch",
-    "dev": "bun run build:watch",
-    "pub:release": "bun run build && npm publish"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "bun-types": "^1.2.5",
-    "tsup": "^8.4.0",
-    "typescript": "^5.0.0"
+    "pub:release": "bun run build:mcp && npm publish"
   },
   "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "@modelcontextprotocol/sdk": "1.13.1",
     "uuid": "latest",
     "ws": "latest",
     "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/bun": "latest",
+    "bun-types": "^1.2.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
   }
 }
