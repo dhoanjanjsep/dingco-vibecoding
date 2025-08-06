@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="E6tWG2zykDGvDMs5W_VpCZbbvPcPsGVgxqA4l7cU3L8" />
+    <title>Cursor Talk to Figma MCP</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .btn {
+            display: inline-block;
+            background: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #1976D2;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🎨 Cursor Talk to Figma MCP</div>
+        <div class="subtitle">AI와 Figma를 연결하는 Model Context Protocol 통합</div>
+    </div>
+
+    <div class="card">
+        <h2>프로젝트 소개</h2>
+        <p>Cursor Talk to Figma MCP는 Cursor AI와 Figma 간의 원활한 통신을 가능하게 하는 Model Context Protocol (MCP) 통합 도구입니다. 
+        AI를 통해 Figma 디자인을 읽고, 수정하고, 자동화할 수 있습니다.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <h3>🔧 설치 및 설정</h3>
+            <p>Windows 사용자를 위한 원클릭 설치:</p>
+            <code>npm run install-and-setup</code>
+        </div>
+        <div class="feature">
+            <h3>🎯 주요 기능</h3>
+            <ul>
+                <li>Figma 디자인 읽기</li>
+                <li>요소 생성 및 수정</li>
+                <li>텍스트 일괄 변경</li>
+                <li>컴포넌트 관리</li>
+            </ul>
+        </div>
+        <div class="feature">
+            <h3>🚀 시작하기</h3>
+            <ol>
+                <li>WebSocket 서버 시작</li>
+                <li>Figma 플러그인 설치</li>
+                <li>Cursor와 연결</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>링크</h2>
+        <a href="https://github.com/cursor-talk-to-figma-mcp" class="btn">GitHub 저장소</a>
+        <a href="https://www.figma.com/community/plugin/1485687494525374295/cursor-talk-to-figma-mcp-plugin" class="btn">Figma 플러그인</a>
+    </div>
+
+    <div class="card">
+        <h2>설치 가이드</h2>
+        <h3>Windows 사용자</h3>
+        <p>가장 간단한 방법:</p>
+        <pre><code>npm run install-and-setup</code></pre>
+        
+        <h3>macOS/Linux 사용자</h3>
+        <pre><code>curl -fsSL https://bun.sh/install | bash
+bun setup</code></pre>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; color: #666;">
+        <p>&copy; 2024 Cursor Talk to Figma MCP. MIT License.</p>
+    </footer>
+</body>
+</html>
