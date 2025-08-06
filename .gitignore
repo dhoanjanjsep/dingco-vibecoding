@@ -1,4 +1,4 @@
 node_modules/
 .cursor/
 dist/
-docs/
+# docs/  # GitHub Pages를 위해 docs 폴더는 포함

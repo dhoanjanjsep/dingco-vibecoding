@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="E6tWG2zykDGvDMs5W_VpCZbbvPcPsGVgxqA4l7cU3L8" />
+    <meta name="description" content="Cursor AI와 Figma를 연결하는 Model Context Protocol 통합 도구">
+    <meta name="keywords" content="Cursor, Figma, MCP, AI, Design Automation, 디자인 자동화">
+    <title>Cursor Talk to Figma MCP - AI 디자인 자동화 도구</title>
+    <link rel="canonical" href="https://cursor-talk-to-figma-mcp.github.io/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2196F3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #2196F3;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 80px 0;
+            text-align: center;
+            margin: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #333;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .features {
+            padding: 80px 0;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .installation {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 20px;
+            border-radius: 20px;
+        }
+        
+        .installation h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .install-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab-button.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 30px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        .code-block {
+            position: relative;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    🎨 Cursor Talk to Figma MCP
+                </div>
+                <nav class="nav">
+                    <a href="#features">기능</a>
+                    <a href="#installation">설치</a>
+                    <a href="https://github.com/cursor-talk-to-figma-mcp">GitHub</a>
+                    <a href="https://www.figma.com/community/plugin/1485687494525374295/cursor-talk-to-figma-mcp-plugin">Figma 플러그인</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>AI로 Figma를 자동화하세요</h1>
+                <p>Cursor AI와 Figma를 연결하여 디자인 작업을 혁신적으로 개선하는 Model Context Protocol 통합 도구입니다.</p>
+                <div class="cta-buttons">
+                    <a href="#installation" class="btn btn-primary">지금 시작하기</a>
+                    <a href="https://github.com/cursor-talk-to-figma-mcp" class="btn btn-secondary">GitHub 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>주요 기능</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI 기반 디자인 읽기</h3>
+                        <p>Cursor AI가 Figma 디자인을 이해하고 분석할 수 있습니다</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✏️</div>
+                        <h3>자동 요소 생성</h3>
+                        <p>텍스트, 프레임, 도형 등을 프로그래밍 방식으로 생성</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>일괄 텍스트 변경</h3>
+                        <p>여러 텍스트 요소를 한 번에 업데이트</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>컴포넌트 관리</h3>
+                        <p>컴포넌트 인스턴스 생성 및 속성 관리</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>어노테이션 지원</h3>
+                        <p>디자인에 주석과 설명을 자동으로 추가</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <h3>프로토타입 연결</h3>
+                        <p>인터랙션 플로우를 시각적으로 표현</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="installation">
+            <div class="container">
+                <h2>간편한 설치</h2>
+                <div class="install-tabs">
+                    <button class="tab-button active" onclick="showTab('windows')">Windows</button>
+                    <button class="tab-button" onclick="showTab('mac')">macOS/Linux</button>
+                </div>
+                
+                <div id="windows-tab" class="tab-content">
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('windows-code')">복사</button>
+                        <pre id="windows-code"># 원클릭 설치 (추천)
+npm run install-and-setup
+
+# 또는 수동 설치
+powershell -c "irm bun.sh/install.ps1|iex"
+bun run setup:windows-npm</pre>
+                    </div>
+                </div>
+                
+                <div id="mac-tab" class="tab-content" style="display: none;">
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('mac-code')">복사</button>
+                        <pre id="mac-code"># bun 설치
+curl -fsSL https://bun.sh/install | bash
+
+# 프로젝트 설정
+bun setup
+
+# 웹소켓 서버 시작
+bun socket</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cursor Talk to Figma MCP. MIT License.</p>
+            <p>Made with ❤️ for the design automation community</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            event.target.classList.add('active');
+        }
+        
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '복사됨!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
